@@ -24,7 +24,7 @@ This is a frontend HR management dashboard built using Next.js (App Router), Tai
 
 1. Clone the repository:
    git clone https://github.com/itsrohann/hr-dashboard.git
-   cd hr-dashboard
+   cd hr-dashboard-flam
 
 2. Install dependencies:
    npm install
