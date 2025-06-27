@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HR Performance Dashboard
 
-## Getting Started
+This is a frontend HR management dashboard built using Next.js (App Router), Tailwind CSS, and Framer Motion. The goal was to simulate a clean, interactive internal HR tool that works entirely on the client side, using dummy data and localStorage. It covers features like employee search, filtering, bookmarking, project assignment, and basic analytics visualization.
 
-First, run the development server:
+## Features Implemented
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Dummy login using localStorage (no auth logic)
+- Search by name, email, or department
+- Filter by department and performance rating (dropdowns with checkboxes)
+- Bookmark employees
+- View bookmarked employees in a separate tab
+- Assign bookmarked employees to projects (dropdown + confirmation)
+- Side drawer to view assigned project status
+- Individual employee pages with:
+  - Tabbed UI (Overview, Projects, Feedback)
+  - Feedback submission with validation
+- Animated transitions on all major UI changes using Framer Motion
+- Basic analytics dashboard using Chart.js:
+  - Average rating per department (Bar chart)
+  - Bookmark activity trend over last 4 days (Line chart)
+- Dark mode toggle (saved in localStorage)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   git clone https://github.com/itsrohann/hr-dashboard.git
+   cd hr-dashboard-flam
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   npm install
 
-## Learn More
+3. Start the development server:
+   npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+4. Go to:
+   http://localhost:3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Login Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+There's no real authentication. Just enter the following credentials:
+Username: admin
+Password: pass123
 
-## Deploy on Vercel
+## Data Handling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All user data is pulled from https://dummyjson.com/users?limit=20. On top of that, each user is given a random department and a random rating. Bookmarks and project assignments are stored in localStorage only.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Folder Structure Overview
+
+- `/app`: all routing and pages
+- `/components`: reusable components like `UserCard`
+- `/context`: (if used) can be removed if state is fully localized
+- `/public`: optional assets like screenshots
+- `/styles`: tailwind/global styles if extended
+
+## Screenshots
+
+Please go through the attached screenshots for a general idea of the portal.
+
+![Login]
+![image](https://github.com/user-attachments/assets/01a006ed-6a9c-45ec-ae54-2094749c6e16)
+
+![Dashboard]
+![image](https://github.com/user-attachments/assets/64a43458-8e85-4080-8b93-612647473479)
+
+![Employee Details]
+![image](https://github.com/user-attachments/assets/6c98f204-9d63-44a2-a0bd-8257948863c8)
+
+![Analytics]
+![image](https://github.com/user-attachments/assets/4591e7db-9415-4fad-8db4-0838f724a215)
+
+![Bookmarks]
+![image](https://github.com/user-attachments/assets/8bca2b30-be88-40d3-bcc7-d12529dca9f3)
+
+
+## Tech Stack Used
+
+- Next.js (App Router)
+- Tailwind CSS
+- Framer Motion
+- Chart.js via react-chartjs-2
+- LocalStorage for state persistence
+- DummyJSON API for fetching sample users
+
+## Notes
+
+- This app is fully client-side.
+- Ideal for demo purposes, prototyping, or as a base for a full-stack extension.
+- No backend, database, or real login is implemented.
+- All project assignment logic is mocked and persisted in-browser only.
+
+## License
+
+Open-source. Use it freely for reference or personal projects.
+
